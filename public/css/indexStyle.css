@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+button.indexBtn {
+    display: inline-block;
+}
+
+div.indexDiv {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 2px solid black;
+    padding: 10%;
+}
