@@ -1,50 +1,27 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-    require_once 'DataBase.php';
-    
-    $iin = $_POST['iin'];
-    $pass = $_POST['pass'];
 
-    $stmt = $pdo->pdo->prepare('INSERT INTO users(iin, pass) VALUES(:iin, :pass)');
-    $stmt->execute([':iin' => $iin, ':pass' => $pass]);
+require_once 'classes/DataBase.php';
 
-?>
+$pdo = new DataBase();
 
-<html>
-    <head>
-        <title>Buh</title>
+if(!empty($_POST['iin']) && !empty($_POST['pass']) && !empty($_POST['2pass'])) {
+    $resultLogin = $pdo->query('SELECT iin FROM users WHERE iin='. $_POST['iin']);
+    $resultLogin = $resultLogin->fetchAll(PDO::FETCH_ASSOC);
+    if(!empty($resultLogin)) {
+        echo 'Логин используется';
+    } else {
+        if($_POST['pass'] != $_POST['2pass']) {
+            echo 'Повторынй пароль не верный';
+        } else {
+            session_start();
+            $_SESSION['iin'] = $_POST['iin'];
+            $result = $pdo->query('INSERT INTO users (iin, pass) VALUES('.$_POST['iin'] .','. $_POST['pass'].');');
+            echo '
+            <div style="text-align: center;">
+                <h1>Поздравляем Вы успешно зарегистрировались!!!</h1>
+                <a href="cabinet.php">Продолжить</a>
+            </div>';
+        }
+    }
 
-        <meta charset="UTF-8">
-        <meta name="author" content="">
-        <meta name="description" content="">
-        <meta name="keywords" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="robots" content="index, follow">
-
-        <link rel="shortcut icon" href="../public/img/mini_logo.png" type="image/png">
-        <link rel="stylesheet" href="../public/css/signUpStyle.css">
- 
-            
-    </head>
-        
-     <body>
-
-        <form action="signUp.php" method="POST">
-
-            <input type="number" autocomplete="false" palceholder="Ваш ИИН" name="iin" max="999999999999">
-            <input type="password" palceholder="Придумайте пароль" name="pass">
-                <button type="submit" name="send">Регистрация</button>
-
-        </form>
-
-    </body>
-</html>
-
-
-
-
-
-
-
-
+}

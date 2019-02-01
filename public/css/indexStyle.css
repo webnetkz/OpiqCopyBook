@@ -3,16 +3,104 @@
     padding: 0;
 }
 
-button.indexBtn {
-    display: inline-block;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
 }
 
-div.indexDiv {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+div#aut {
+    display: none;
+}
 
-    border: 2px solid black;
-    padding: 10%;
+div#reg {
+    display: none;
+}
+
+div.signBlock {
+    display: fixed;
+    height: 25%;
+    width: 20%;
+    display: fixed;
+    margin: 10% auto;
+    background-color: red;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+    padding: 20px;
+    background-color: rgb(250,250,250);
+    border: 1 solid rgb(222,222,222);
+}
+
+div.block0 {
+    height: 30%;
+    margin: 8% auto;
+}
+
+h4 {
+    color: rgb(26,115,232);
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+input {
+    margin: 10px;
+    outline: none;
+    border-radius: 20px;
+    height: 30px;
+    text-align: center;
+    color: rgb(26,115,232);
+}
+
+input:focus {
+    border: 0 solid;
+    background-color: rgb(26,115,232);
+    box-shadow: 2px 4px 14px black;
+    transition: 300ms;
+    color: white;
+}
+
+button.btnReg {
+    height: 30px;
+    width: 90px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border: 0 solid;
+    background-color: rgb(26,115,232);
+    color: white;
+    box-shadow: 0 2px 5px black;
+    font-weight: 600;
+    outline: none;
+}
+
+button.btnReg2 {
+    width: 120px;
+}
+
+div.signBtn {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    border: 1 solid rgb(222,222,222);
+    padding: 5%;
+    background-color: rgb(250,250,250);
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+}
+
+button.btn {
+   width: 100%;
+   font-size: 2em;
+   margin: 10px;
+   background-color: rgb(26,115,232);
+   color: white;
+   border-radius: 30px;
+    padding: 5px;
+    outline: none;
+}
+
+button.btn:hover {
+    box-shadow: 4px 5px 10px black;
+    transition-duration: 500ms;
+    border-color: rgb(26,115,232);
 }
