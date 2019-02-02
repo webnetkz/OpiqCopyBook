@@ -16,12 +16,10 @@ if(!empty($_POST['iin']) && !empty($_POST['pass']) && !empty($_POST['2pass'])) {
             session_start();
             $_SESSION['iin'] = $_POST['iin'];
             $result = $pdo->query('INSERT INTO users (iin, pass) VALUES('.$_POST['iin'] .','. $_POST['pass'].');');
-            echo '
-            <div style="text-align: center;">
-                <h1>Поздравляем Вы успешно зарегистрировались!!!</h1>
-                <a href="cabinet.php">Продолжить</a>
-            </div>';
-        }
+            echo 'Sign Up';
+        } 
     }
 
+} else {
+    echo 'Заполните все поля';
 }

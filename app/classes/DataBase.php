@@ -4,7 +4,6 @@ class DataBase {
     
     public $pdo;
     protected $driver = 'mysql';
-    protected $host = 'localhost';
     protected $dbname = 'buh';
     protected $charset = 'utf8';
     protected $port = 3306;
@@ -21,7 +20,7 @@ class DataBase {
         try {
             $this->pdo = new PDO(
                  $this->driver .
-                 ':host=' . $this->$host .
+                 ':host=localhost' .
                 ';dbname=' . $this->dbname . 
                  ';charset=' . $this->charset . 
                  ';port=' . $this->port . ';' , 

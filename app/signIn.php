@@ -13,11 +13,13 @@ if(!empty($_POST['iin']) && !empty($_POST['pass'])) {
        if($resultLogin[0]['pass'] == $_POST['pass']) {
             session_start();
             $_SESSION['iin'] = $_POST['iin'];
-            header("Location: http://buh/app/cabinet.php");
+            echo 'Sign In';
        } else {
            echo 'Неверный пароль';
        }
     } else {
         echo 'Неверный логин';
     }
+} else {
+    echo 'Заполните все поля';
 }
