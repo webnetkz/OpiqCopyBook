@@ -20,9 +20,7 @@ $(document).ready(function() {
 					
 					if(result == 'Sign In') {
 						window.location.href = '../../app/cabinet.php';
-					}
-
-					alert(result);
+					}		
 			},
 			
 

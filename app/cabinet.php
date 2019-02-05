@@ -28,8 +28,22 @@ if($_SESSION['iin'] == null) {
     <body>
 
         <header>
-            <p class="iin">ИИН: <?=$_SESSION['iin']?></p>
+            <menu>
+                <ul>
+                    <li class="menuItem">Здать отчет</li>
+                    <li class="menuItem">История отчетов</li>
+                </ul>
+                <p onclick="getProfile();" class="pro">Аккаунт</p>
+            </menu>
         </header>
 
+        <nav id="nav">
+            <p class="close" id="close" onclick="closeNav();">Закрыть</p>
+            <ul>
+                <li class="logout">Сменить аккаунт</li>
+                <li class="logout">Изменить</li>
+            </ul>
+        </nav>
+        <script src="../public/js/cabinet.js"></script>
     </body>
 </html>

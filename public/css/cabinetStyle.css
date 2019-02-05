@@ -10,14 +10,97 @@ body {
 header {
     position: fixed;
     width: 100%;
-    height: 5%;
+    height: 50px;
     background-color: rgb(26,115,232);
     box-shadow: 0 0 20px black;
 }
 
-p.iin {
-    float: right;
-    margin: 1%;
-    margin-right: 20px;
+li.menuItem {
+    display: inline;
+    line-height: 50px;
+    border: 2px solid white;
+    padding: 10px;
+    margin-left: 10px;
     color: white;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+li.menuItem:hover {
+    background-color: white;
+    color: rgb(26,115,232);
+    transition-duration: 400ms;
+    cursor: pointer;
+}
+
+p.pro {
+    position: fixed;
+    color:white;
+    top: 4px;;
+    padding: 10px;
+    left: 92%;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+p.pro:hover {
+    color: rgb(26,115,232);
+    transition-duration: 400ms;
+    background-color: white;
+    cursor: pointer;
+}
+
+nav {
+    display: none;
+    box-shadow: 0 0 10px black;
+    background-color: rgb(250,250,250);
+    position: fixed;
+    width: 28%;
+    height: 85%;
+    top: 10%;
+    left: 70%;
+    border: 2px solid rgb(26,115,232);
+    border-radius: 20px;
+    animation: showNav 100ms linear;
+}
+
+@keyframes showNav{
+    0% {
+        left: 100%;
+        opacity: 0;
+    }
+  
+    100% {
+        left: 85%;
+        opacity: 1;
+    }
+}
+
+p.close {
+    color: rgb(26,115,232);
+    text-align: right;
+    margin: 10px;
+    font-weight: 500;
+}
+
+p.close:hover {
+    cursor: pointer;
+}
+
+ul.logout {
+    
+}
+
+li.logout {
+    display: inline;
+    text-align: rgb(26,115,232);
+    color: white;
+    padding: 10px;
+    border: 2px solid rgb(26,115,232);
+    border-radius: 5px;
+    color: rgb(26,115,232);
+}
+
+p.logout:hover {
+
 }
