@@ -1,3 +1,9 @@
+<?php
+ session_start();
+ if(isset($_SESSION['iin'])) {
+    header("Location: app/cabinet.php");
+ }
+?>
 <html>
     <head>
         <title>Buh</title>
@@ -23,7 +29,7 @@
                 <input type="text" name="iin" placeholder="Введите Ваш ИИН" autocomplete="off">
                 <input type="password" name="pass" placeholder="Введите пароль">
             <hr>
-                <button class="btnReg" type="submit">Войти</button>
+                <button type="submit" class="btnReg" >Войти</button>
             </form>    
         </div>
 
@@ -31,7 +37,7 @@
             <h4>РЕГИСТРАЦИЯ</h4>
                 <hr>
             <form action="app/signUp.php" method="POST">
-                <input type="text" name="iin" placeholder="Введите Ваш ИИН" autocomplete="off">
+                <input type="text" name="iin" placeholder="Ваш ИИН или БИН" autocomplete="off">
                 <input type="password" name="pass" placeholder="Введите пароль">
                 <input type="password" name="2pass" placeholder="Повторите пароль">
             <hr>

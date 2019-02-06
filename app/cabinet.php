@@ -22,6 +22,7 @@ if($_SESSION['iin'] == null) {
 
         <link rel="shortcut icon" href="../public/img/miniLogoWebnet.png" type="image/png">
         <link rel="stylesheet" href="../public/css/cabinetStyle.css">
+        <link rel="stylesheet" href="../public/css/order910Style.css">
  
     </head>
         
@@ -30,20 +31,89 @@ if($_SESSION['iin'] == null) {
         <header>
             <menu>
                 <ul>
-                    <li class="menuItem">Здать отчет</li>
+                    <li class="menuItem" onclick="showBtn('orderContent');">Здать отчет</li>
                     <li class="menuItem">История отчетов</li>
                 </ul>
-                <p onclick="getProfile();" class="pro">Аккаунт</p>
+                <p onclick="showBtn('nav');" class="pro">Аккаунт</p>
             </menu>
         </header>
 
         <nav id="nav">
-            <p class="close" id="close" onclick="closeNav();">Закрыть</p>
-            <ul>
-                <li class="logout">Сменить аккаунт</li>
+            <p class="close" id="close" onclick="closeBtn('nav');">Закрыть</p>
+                <hr>
+                <hr>
+            <p class="ShowIin">ИИН(БИН): <?=$_SESSION['iin'];?></p>
+                
+            <ul class="footer">
+                <li class="logout" id="exit" onclick="logout();">Сменить аккаунт</li>
                 <li class="logout">Изменить</li>
             </ul>
         </nav>
+
+        <div id="orderContent">
+            <form action="forms/form910.php" method="POST">
+                <div class="questions">
+                    <h3>Ваш доход за полугодие?</h3>
+                    <input type="number" name="sum" class="sum">  
+                </div>
+                <div class="questions">
+                    <h3>Есть ли у Вас наемные работники?</h3>
+                    <ul class="ask">
+                        <li class="askItem" onclick="askWorkers();">Да</li>
+                        <li class="askItem">Нет</li>
+                    </ul>
+                </div>
+                <div id="questions2" class="questions">
+                    <h3>Количество наемных работников?</h3>
+                    <input type="number" name="peoples" class="sum">
+                </div>
+                <div id="questions2_1" class="questions">
+                    <h3>Есть ли у Вас пенсионеры или инвалиды?</h3>
+                    <ul class="ask">
+                        <li class="askItem" onclick="askPensioner();">Да</li>
+                        <li class="askItem">Нет</li>
+                    </ul>
+                </div>
+                <div id="questions2_2" class="questions">
+                    <h3>Пенсионеров:</h3>
+                    <input type="number" name="peoplesPens" class="sum">
+                </div>
+                <div id="questions2_3" class="questions">
+                    <h3>Инвалидов:</h3>
+                    <input type="number" name="peoplesInv" class="sum">
+                </div>
+                <!--<div id="questions3" class="questions">
+                    <h3>Ваша заработная плата, за каждый месяц:</h3>
+                    <h3>Но не более 425 000 тенге за один месяц</h3>
+                </div>
+                <div id="questions3_1" class="questions">
+                    <h3>Первый месяц:</h3>
+                    <input type="number" name="peoplesInv" class="sum"><br>
+                </div>
+                <div id="questions3_2" class="questions">
+                    <h3>Второй месяц:</h3>
+                    <input type="number" name="peoplesInv" class="sum"><br>
+                </div>
+                <div id="questions3_3" class="questions">
+                    <h3>Третий месяц:</h3>
+                    <input type="number" name="peoplesInv" class="sum"><br>
+                </div>
+                <div id="questions3_4" class="questions">
+                    <h3>Четвертый месяц:</h3>
+                    <input type="number" name="peoplesInv" class="sum"><br>
+                </div>
+                <div id="questions3_5" class="questions">
+                    <h3>Пятый месяц:</h3>
+                    <input type="number" name="peoplesInv" class="sum"><br>
+                </div>
+                <div id="questions3_6" class="questions">
+                    <h3>Шестой месяц:</h3>
+                    <input type="number" name="peoplesInv" class="sum"><br>
+                </div>-->
+
+                
+            </form>
+        </div>
         <script src="../public/js/cabinet.js"></script>
     </body>
 </html>
