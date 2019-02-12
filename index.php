@@ -17,6 +17,7 @@
 
         <link rel="shortcut icon" href="/public/img/miniLogoWebnet.png" type="image/png">
         <link rel="stylesheet" href="/public/css/indexStyle.css">
+        <link rel="stylesheet" href="/public/css/mobileIndexStyle.css">
  
     </head>
         
@@ -26,8 +27,8 @@
             <h4>АВТОРИЗАЦИЯ</h4>
                 <hr>
             <form action="app/signIn.php" method="POST">
-                <input type="text" name="iin" placeholder="Введите Ваш ИИН" autocomplete="off">
-                <input type="password" name="pass" placeholder="Введите пароль">
+                <input type="text" name="iin" placeholder="Ваш ИИН/БИН" autocomplete="off">
+                <input type="password" name="pass" placeholder="Пароль">
             <hr>
                 <button type="submit" class="btnReg" >Войти</button>
             </form>    
@@ -37,8 +38,12 @@
             <h4>РЕГИСТРАЦИЯ</h4>
                 <hr>
             <form action="app/signUp.php" method="POST">
-                <input type="text" name="iin" placeholder="Ваш ИИН или БИН" autocomplete="off">
-                <input type="password" name="pass" placeholder="Введите пароль">
+                <select name="organization" id="iin_bin">
+                    <option value="ip">ИП</option>
+                    <option value="too">ТОО</option>
+                </select><br>
+                <input type="text" name="iin" placeholder="Ваш ИИН/БИН" autocomplete="off">
+                <input type="password" name="pass" placeholder="Пароль">
                 <input type="password" name="2pass" placeholder="Повторите пароль">
             <hr>
                 <button class="btnReg btnReg2" type="submit">Регистрация</button>
@@ -50,9 +55,9 @@
             <button id="signUp" class="btn" onclick="signUp();">Регистрация</button>
         </div>
 
-        <script src="public/js/jquery.js"></script>
+        <!--<script src="public/js/jquery.js"></script>
         <script src="public/js/ajax.js"></script>
-        <script src="public/js/main.js"></script>
+--><script src="public/js/main.js"></script>
     </body>
 </html>
 

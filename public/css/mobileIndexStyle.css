@@ -1,0 +1,18 @@
+@media only screen and (max-width: 420px) {
+    div.signBtn {
+        width: 80%;
+        top: 70%;
+    }
+    
+    button.btn {
+        margin-left: 0;
+    }
+    
+    div.signBlock {
+        width: 60%;
+    }
+    
+    div.block0 {
+        height: 40%;
+    }
+}

@@ -82,7 +82,7 @@ if($_SESSION['iin'] == null) {
                     <h3>Инвалидов:</h3>
                     <input type="number" name="peoplesInv" class="sum">
                 </div>
-                <!--<div id="questions3" class="questions">
+                <div id="questions3" class="questions">
                     <h3>Ваша заработная плата, за каждый месяц:</h3>
                     <h3>Но не более 425 000 тенге за один месяц</h3>
                 </div>
@@ -109,7 +109,7 @@ if($_SESSION['iin'] == null) {
                 <div id="questions3_6" class="questions">
                     <h3>Шестой месяц:</h3>
                     <input type="number" name="peoplesInv" class="sum"><br>
-                </div>-->
+                </div>
 
                 
             </form>
