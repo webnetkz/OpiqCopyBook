@@ -125,3 +125,7 @@ li.logout:hover {
     background-color: rgb(26,115,232);
     cursor: pointer;
 }
+
+div#m_Set {
+    display: none;
+}

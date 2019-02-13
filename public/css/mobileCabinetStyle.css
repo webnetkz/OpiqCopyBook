@@ -1,0 +1,46 @@
+@media only screen and (max-width: 420px) {
+
+    div#m_Set {
+        display: block;
+    }
+
+    li.menuItem {
+        display: none;
+    }
+
+    .pro {
+        display: none;
+    }
+
+    li.m_menuItem {
+        display: inline-block;
+        position: relative;
+        width: 47%;
+        text-align: center;
+        height: 100%;
+        line-height: 50px;
+        font-weight: 500;
+        color: white;
+    }
+
+    li.firstMenuItem {
+        border-right: 2px solid white;
+    }
+
+    h4.central {
+        margin-top: 1em;
+        text-align: center;
+        color: rgb(26,115,232);
+    }
+
+    button.m_Btn {
+        display: block;
+        margin: auto auto;
+        border-radius: 4px;
+        outline: none;
+        font-size: 1.5em;
+        padding: 0.4em;
+        color: white;
+        background-color: rgb(26,115,232);
+    }
+}

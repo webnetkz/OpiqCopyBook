@@ -14,12 +14,20 @@ $(document).ready(function() {
 			processData: false,
 
 			success: function(result){
-					if(result == 'Sign Up') {
-						window.location.href = '../../app/cabinet.php';
+					if(result == 'Sign Up Ip') {
+						window.location.href = '../../app/cabinetIp.php';
 					}
 					
-					if(result == 'Sign In') {
-						window.location.href = '../../app/cabinet.php';
+					if(result == 'Sign Up Too') {
+						window.location.href = '../../app/cabinetToo.php';
+					}
+
+					if(result == 'Sign In Ip') {
+						window.location.href = '../../app/cabinetIp.php';
+					}
+
+					if(result == 'Sign In Too') {
+						window.location.href = '../../app/cabinetToo.php';
 					}		
 			},
 			

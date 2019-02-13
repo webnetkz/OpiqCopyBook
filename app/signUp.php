@@ -4,27 +4,43 @@ require_once 'classes/DataBase.php';
 
 $pdo = new DataBase();
 
-if(!empty($_POST['iin']) && !empty($_POST['pass']) && !empty($_POST['2pass']) && !empty($_POST['organization'])) {
+if(!empty($_POST['iin']) && !empty($_POST['pass']) && !empty($_POST['2pass'])) {
     $resultLogin = $pdo->query('SELECT iin FROM users WHERE iin='. $_POST['iin']);
     $resultLogin = $resultLogin->fetchAll(PDO::FETCH_ASSOC);
+
+    $errors = [];
+
     if(!empty($resultLogin)) {
-        echo 'Логин используется';
+        $errors = 'ИИН/БИН используется';
     } else {
         if($_POST['pass'] != $_POST['2pass']) {
-            echo 'Повторынй пароль не верный';
+            $errors = 'Повторынй пароль не верный';
         } else {
+
+            $iin = $_POST['iin'];
+            $pass = $_POST['pass'];
+            $organization = $_POST['organization'];
+
+            // Добавление нового пользователя
+            $result = $pdo->pdo->query("INSERT INTO users (iin, pass, organization) VALUES('$iin', '$pass', '$organization');");
             
-            $result = $pdo->query('INSERT INTO users (iin, pass, organization) VALUES('.$_POST['iin'] .','. $_POST['pass'] .','. $_POST['organization'] .');');
             if($result) {
-                
                 session_start();
-                $_SESSION['iin'] = $_POST['iin'];
-                echo 'Sign Up';
-                var_dump($result);
+                $_SESSION['iin'] = $iin;
+                
+
+                if($resultLogin[0]['organization'] == 'ip') {
+                    header('Location: cabinetIp.php');
+                }
+
+                if($resultLogin[0]['organization'] == 'too') {
+                    header('Location: cabinetToo.php');
+                }
             }
+                
         } 
     }
 
 } else {
-    echo 'Заполните все поля';
+    $errors = 'Заполните все поля';
 }

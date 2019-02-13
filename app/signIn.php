@@ -13,7 +13,15 @@ if(!empty($_POST['iin']) && !empty($_POST['pass'])) {
        if($resultLogin[0]['pass'] == $_POST['pass']) {
             session_start();
             $_SESSION['iin'] = $_POST['iin'];
-            echo 'Sign In';
+                
+                if($resultLogin[0]['organization'] == 'ip') {
+                    header('Location: cabinetIp.php');
+                }
+
+                if($resultLogin[0]['organization'] == 'too') {
+                    header('Location: cabinetToo.php');
+                }
+
        } else {
            echo 'Неверный пароль';
        }
