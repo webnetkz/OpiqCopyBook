@@ -126,4 +126,6 @@ select {
     border-radius: 8px;
 }
 
-
+div#mobileIndex {
+    display: none;
+}

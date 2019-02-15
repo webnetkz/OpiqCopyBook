@@ -32,15 +32,14 @@ if($_SESSION['iin'] == null) {
         <header>
             <menu>
                     <!--Mobile Set-->
-                        <div id="m_Set">
+                        <div class="m_Set">
                             <ul>
                                 <li class="m_menuItem firstMenuItem">Статистика</li>
                                 <li class="m_menuItem">Баланс</li>
                             </ul>
-
-                            <h4 class="central">ИП:</h4>
+                            <h4 class="central">ИП: <?=$_SESSION['company'];?></h4>
                             <h4 class="central">ИИН: <?=$_SESSION['iin'];?></h4>
-                            <button class="m_Btn" id="newAcc" onclick="logoutAcc();">Сменить аккаунт</button>
+                            <a href="mechanics/mobileLogout.php"><button class="m_Btn">Сменить аккаунт</button></a>
                                 <hr style="margin: 1em;">
                             <h4 class="central em2">Введите данные за явнварь:</h4>
                             <button class="m_Btn">Изменить месяц</button>
@@ -138,6 +137,5 @@ if($_SESSION['iin'] == null) {
                 
             </form>
         </div>
-        <script src="../../public/js/logout.js"></script>
     </body>
 </html>

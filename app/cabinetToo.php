@@ -11,7 +11,7 @@ if($_SESSION['iin'] == null) {
 
 <html>
     <head>
-        <title>Кабинет</title>
+        <title>Кабинет ТОО</title>
 
         <meta charset="UTF-8">
         <meta name="author" content="">
@@ -22,6 +22,7 @@ if($_SESSION['iin'] == null) {
 
         <link rel="shortcut icon" href="../public/img/miniLogoWebnet.png" type="image/png">
         <link rel="stylesheet" href="../public/css/cabinetStyle.css">
+        <link rel="stylesheet" href="../public/css/mobileCabinetStyle.css">
         <link rel="stylesheet" href="../public/css/order910Style.css">
  
     </head>
@@ -30,6 +31,28 @@ if($_SESSION['iin'] == null) {
 
         <header>
             <menu>
+                    <!--Mobile Set-->
+                        <div class="m_Set">
+                            <ul>
+                                <li class="m_menuItem firstMenuItem">Статистика</li>
+                                <li class="m_menuItem">Баланс</li>
+                            </ul>
+                            <h4 class="central">ТОО: <?=$_SESSION['company'];?></h4>
+                            <h4 class="central">БИН: <?=$_SESSION['iin'];?></h4>
+                            <a href="mechanics/mobileLogout.php"><button class="m_Btn">Сменить аккаунт</button></a>
+                                <hr style="margin: 1em;">
+                            <h4 class="central em2">Введите данные за явнварь:</h4>
+                            <button class="m_Btn">Изменить месяц</button>
+
+                            <form action="">
+                                <input type="number" name="" class="centralInp" placeholder="Моя зарплата">
+                                <input type="number" name="" class="centralInp" placeholder="Зарплата сотрудников">
+                            
+                                <input type="submit" name="sendData" value="OK" class="sendData">
+                            </form>
+                        </div>
+
+                    <!--End Mobile Set-->
                 <ul>
                     <li class="menuItem" onclick="showBtn('orderContent');">Здать отчет</li>
                     <li class="menuItem">История отчетов</li>
@@ -42,7 +65,7 @@ if($_SESSION['iin'] == null) {
             <p class="close" id="close" onclick="closeBtn('nav');">Закрыть</p>
                 <hr>
                 <hr>
-            <p class="ShowIin">БИН ТОО: <?=$_SESSION['iin'];?></p>
+            <p class="ShowIin">ИИН ИП: <?=$_SESSION['iin'];?></p>
                 
             <ul class="footer">
                 <li class="logout" id="exit" onclick="logout();">Сменить аккаунт</li>
@@ -114,6 +137,5 @@ if($_SESSION['iin'] == null) {
                 
             </form>
         </div>
-        <script src="../public/js/cabinet.js"></script>
     </body>
 </html>

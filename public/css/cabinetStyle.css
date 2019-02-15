@@ -126,6 +126,6 @@ li.logout:hover {
     cursor: pointer;
 }
 
-div#m_Set {
+div.m_Set {
     display: none;
 }

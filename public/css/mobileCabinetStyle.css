@@ -1,6 +1,14 @@
 @media only screen and (max-width: 420px) {
 
-    div#m_Set {
+    ::-webkit-input-placeholder {
+        color: rgb(26,115,232);
+    }
+
+    ::-moz-placeholder {
+        color: rgb(26,115,232);
+    }
+
+    div.m_Set {
         display: block;
     }
 
@@ -56,6 +64,14 @@
         font-size: 1.5em;
         text-align: center;
         padding: 0.3em;
+        outline: none;
+        color: rgb(26,115,232);
+    }
+
+    input.centralInp:focus {
+        background-color: rgb(26,115,232);
+        color: white;
+        transition-duration: 400ms;
     }
 
     input.sendData {
@@ -67,5 +83,9 @@
         padding: 0.4em;
         color: white;
         background-color: rgb(26,115,232)
+    }
+
+    a {
+        text-decoration: none;
     }
 }

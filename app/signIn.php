@@ -13,6 +13,7 @@ if(!empty($_POST['iin']) && !empty($_POST['pass'])) {
        if($resultLogin[0]['pass'] == $_POST['pass']) {
             session_start();
             $_SESSION['iin'] = $_POST['iin'];
+            $_SESSION['org'] = $resultLogin[0]['organization'];
                 
                 if($resultLogin[0]['organization'] == 'ip') {
                     header('Location: cabinetIp.php');

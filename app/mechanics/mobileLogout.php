@@ -3,7 +3,7 @@
 session_start();
 
 if($_SESSION['iin'] == null) {
-    header("Location: ../index.php");
+    header("Location: ../../index.php");
 }
 
 
@@ -21,32 +21,32 @@ if($_SESSION['iin'] == null) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="index, follow">
 
-        <link rel="shortcut icon" href="../public/img/miniLogoWebnet.png" type="image/png">
+        <link rel="shortcut icon" href="../../public/img/miniLogoWebnet.png" type="image/png">
         <link rel="stylesheet" href="../../public/css/mobileCabinetLogoutStyle.css">
  
     </head>
         
     <body>
 
-        <header>
-            <menu>
-                    <!--Mobile Set-->
-                        <div id="m_Set">
-                            <h4 class="central">Смена аккаунта</h4>
-                                <hr style="margin: 1em;">
+            <!--Mobile Set-->
+                <div id="m_Set">
+                    <h2 class="central">Смена аккаунта</h4>
+                        <hr style="margin: 1em;">
 
-
-                            <form action="mechanics/mobileLogout.php" method="POST" class="footer">
-                                <input type="radio" name="" class="radio">
-                                <input type="radio" name="" class="radio">
-                                    <a href="../../index.php" class="newAcc">Создать новый</a>
-                                <input type="submit" name="sendData" value="OK" class="sendData">
-                            </form>
+                    <form action="mechanics/mobileLogout.php" method="POST" class="footer">
+                        <div class="radio">
+                            <input type="radio" name="mainCompany" class="radio" id="radio" checked>
+                                <label for="radio">
+                                    "<?=$_SESSION['company'];?>"
+                                </label>
                         </div>
+                            <a href="../../public/pages/signUp.php" class="newAcc">Создать новый</a>
+                        <input type="submit" name="sendData" value="OK" class="sendData">
+                    </form>
+                </div>
 
-                    <!--End Mobile Set-->
+            <!--End Mobile Set-->
                 
-        
-        <script src="../../public/js/logout.js"></script>
+    
     </body>
 </html>

@@ -1,4 +1,6 @@
 
+// Functions for Index
+
 function signIn() {
     aut.setAttribute('style', 'display: block;');
     reg.setAttribute('style', 'display: none;');

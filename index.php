@@ -1,14 +1,9 @@
 <?php
  session_start();
- if(isset($_SESSION['iin'])) {
+ if(!empty($_SESSION['iin'])) {
     
-    if($_SESSION['org'] == 'ip') {
-        header('Location: app/cabinetIp.php');
-    }
+    header('Location: app/mechanics/cabinetNavigation.php');
 
-    if($_SESSION['org'] == 'too') {
-        header('Location: app/cabinetToo.php');
-    }
  }
 ?>
 <html>
@@ -30,6 +25,15 @@
         
      <body>
 
+        <!-- Mobile -->
+
+            <div id="mobileIndex">
+                <a href="public/pages/signIn.php"  class="indexLink"><button class="indexBtn">Авторизация</button></a>
+                <a href="public/pages/signUp.php"  class="indexLink"><button class="indexBtn">Регистрация</button></a>
+            </div>
+
+        <!--End Mobile-->
+
         <div class="signBlock" id="aut">
             <h4>АВТОРИЗАЦИЯ</h4>
                 <hr>
@@ -50,6 +54,7 @@
                     <option value="too">ТОО</option>
                 </select><br>
                 <input type="text" name="iin" placeholder="Ваш ИИН/БИН" autocomplete="off">
+                <input type="text" name="company" placeholder="Организация" autocomplete="off">
                 <input type="password" name="pass" placeholder="Пароль">
                 <input type="password" name="2pass" placeholder="Повторите пароль">
             <hr>
@@ -62,9 +67,7 @@
             <button id="signUp" class="btn" onclick="signUp();">Регистрация</button>
         </div>
 
-        <!--<script src="public/js/jquery.js"></script>
-        <script src="public/js/ajax.js"></script>
-        --><script src="public/js/main.js"></script>
+        <script src="public/js/main.js"></script>
     </body>
 </html>
 
