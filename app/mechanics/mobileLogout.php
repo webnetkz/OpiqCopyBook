@@ -41,7 +41,7 @@ if($_SESSION['iin'] == null) {
                                 </label>
                         </div>
                             <a href="../../public/pages/signUp.php" class="newAcc">Создать новый</a>
-                        <input type="submit" name="sendData" value="OK" class="sendData">
+                        <a href="cabinetNavigation.php" class="newAcc">Назад</a>
                     </form>
                 </div>
 

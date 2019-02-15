@@ -6,7 +6,6 @@ if($_SESSION['iin'] == null) {
     header("Location: ../index.php");
 }
 
-
 ?>
 
 <html>
@@ -41,8 +40,14 @@ if($_SESSION['iin'] == null) {
                             <h4 class="central">ИИН: <?=$_SESSION['iin'];?></h4>
                             <a href="mechanics/mobileLogout.php"><button class="m_Btn">Сменить аккаунт</button></a>
                                 <hr style="margin: 1em;">
-                            <h4 class="central em2">Введите данные за явнварь:</h4>
-                            <button class="m_Btn">Изменить месяц</button>
+                            <h4 class="central em2">Введите данные за <?php
+                                if(empty($_SESSION['month'])) {
+                                    echo 'январь';
+                                } else {
+                                    echo $_SESSION['month'];
+                                }
+                            ?>:</h4>
+                            <a href="mechanics/month.php"><button class="m_Btn">Изменить месяц</button></a>
 
                             <form action="">
                                 <input type="number" name="" class="centralInp" placeholder="Моя зарплата">

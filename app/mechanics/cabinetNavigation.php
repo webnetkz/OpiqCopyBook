@@ -7,3 +7,5 @@ if($_SESSION['org'] == 'too') {
 } else {
     header('Location: ../cabinetIp.php');
 }
+
+$_SESSION['month'] = $_POST['month'];
