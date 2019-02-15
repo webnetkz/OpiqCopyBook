@@ -40,8 +40,17 @@ if($_SESSION['iin'] == null) {
 
                             <h4 class="central">ИП:</h4>
                             <h4 class="central">ИИН: <?=$_SESSION['iin'];?></h4>
-                                <hr style="margin: 1.5em;">
-                            <button class="m_Btn">Сменить аккаунт</button>
+                            <button class="m_Btn" id="newAcc" onclick="logoutAcc();">Сменить аккаунт</button>
+                                <hr style="margin: 1em;">
+                            <h4 class="central em2">Введите данные за явнварь:</h4>
+                            <button class="m_Btn">Изменить месяц</button>
+
+                            <form action="">
+                                <input type="number" name="" class="centralInp" placeholder="Моя зарплата">
+                                <input type="number" name="" class="centralInp" placeholder="Зарплата сотрудников">
+                            
+                                <input type="submit" name="sendData" value="OK" class="sendData">
+                            </form>
                         </div>
 
                     <!--End Mobile Set-->
@@ -129,6 +138,6 @@ if($_SESSION['iin'] == null) {
                 
             </form>
         </div>
-        <script src="../public/js/cabinet.js"></script>
+        <script src="../../public/js/logout.js"></script>
     </body>
 </html>

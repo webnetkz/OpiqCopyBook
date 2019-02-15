@@ -1,7 +1,14 @@
 <?php
  session_start();
  if(isset($_SESSION['iin'])) {
-    header("Location: app/cabinet.php");
+    
+    if($_SESSION['org'] == 'ip') {
+        header('Location: app/cabinetIp.php');
+    }
+
+    if($_SESSION['org'] == 'too') {
+        header('Location: app/cabinetToo.php');
+    }
  }
 ?>
 <html>

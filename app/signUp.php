@@ -27,6 +27,7 @@ if(!empty($_POST['iin']) && !empty($_POST['pass']) && !empty($_POST['2pass'])) {
             if($result) {
                 session_start();
                 $_SESSION['iin'] = $iin;
+                $_SESSION['org'] = $organization;
                 
 
                 if($resultLogin[0]['organization'] == 'ip') {
