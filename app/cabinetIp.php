@@ -10,7 +10,7 @@ if($_SESSION['iin'] == null) {
 
 <html>
     <head>
-        <title>Кабинет</title>
+        <title>Кабинет ИП</title>
 
         <meta charset="UTF-8">
         <meta name="author" content="">
@@ -19,7 +19,7 @@ if($_SESSION['iin'] == null) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="robots" content="index, follow">
 
-        <link rel="shortcut icon" href="../public/img/miniLogoWebnet.png" type="image/png">
+        <link rel="shortcut icon" href="../miniLogoWebnet.png" type="image/png">
         <link rel="stylesheet" href="../public/css/cabinetStyle.css">
         <link rel="stylesheet" href="../public/css/mobileCabinetStyle.css">
         <link rel="stylesheet" href="../public/css/order910Style.css">
@@ -50,8 +50,8 @@ if($_SESSION['iin'] == null) {
                             <a href="mechanics/month.php"><button class="m_Btn">Изменить месяц</button></a>
 
                             <form action="">
-                                <input type="number" name="" class="centralInp" placeholder="Моя зарплата">
-                                <input type="number" name="" class="centralInp" placeholder="Зарплата сотрудников">
+                                <input type="number" name="mainSalary" class="centralInp" placeholder="Моя зарплата">
+                                <input type="number" name="salary" class="centralInp" placeholder="Зарплата сотрудников">
                             
                                 <input type="submit" name="sendData" value="OK" class="sendData">
                             </form>
