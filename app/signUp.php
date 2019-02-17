@@ -5,7 +5,7 @@ require_once 'classes/DataBase.php';
 $pdo = new DataBase();
 
 if(!empty($_POST['iin']) && !empty($_POST['pass']) && !empty($_POST['2pass'])) {
-    $resultLogin = $pdo->query('SELECT iin FROM users WHERE iin='. $_POST['iin']);
+    $resultLogin = $pdo->pdo->query('SELECT iin FROM users WHERE iin='. $_POST['iin']);
     $resultLogin = $resultLogin->fetchAll(PDO::FETCH_ASSOC);
 
     if(!empty($resultLogin)) {

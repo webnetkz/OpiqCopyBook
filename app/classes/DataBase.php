@@ -31,29 +31,4 @@ class DataBase {
             exit('Нет подключение к Базе данных. Ошибка: ' . $e->getMessage());
         }
     }
-       // Применение подготовленых выражений, при помощи именованых placeholders
-     public function query($sql, $params = []) {
-        $stmt = $this->pdo->prepare($sql);
-
-          if (!empty($params)) {
-              foreach ($params as $key => $val) {
-                   $stmt->bindValue(':'.$key, $val);
-               }
-           }
-
-        $stmt->execute();
-        return $stmt;
-
-        return $query;
-    }
-       // Возврат строки
-     public function row($sql, $params = []) {
-         $result = $this->query($sql, $params);
-         return $result->fetchAll(PDO::FETCH_ASSOC);
-    }
-      // Возврат колонки
-     public function column($sql, $params = []) {
-         $result = $this->query($sql, $params);
-         return $result->fetchColumn(PDO::FETCH_ASSOC);
-    }
 }

@@ -6,7 +6,7 @@ $pdo = new DataBase();
 
 if(!empty($_POST['iin']) && !empty($_POST['pass'])) {
 
-    $resultLogin = $pdo->query('SELECT * FROM users WHERE iin =' . $_POST['iin']);
+    $resultLogin = $pdo->pdo->query('SELECT * FROM users WHERE iin =' . $_POST['iin']);
     $resultLogin = $resultLogin->fetchAll(PDO::FETCH_ASSOC);
 
     if($resultLogin[0]['iin'] == $_POST['iin']) {

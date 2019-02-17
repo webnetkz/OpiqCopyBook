@@ -42,16 +42,17 @@ if($_SESSION['iin'] == null) {
                                 <hr style="margin: 1em;">
                             <h4 class="central em2">Введите данные за <?php
                                 if(empty($_SESSION['month'])) {
-                                    echo 'январь';
+                                    $_SESSION['month'] = 'январь';
+                                    echo $_SESSION['month'];
                                 } else {
                                     echo $_SESSION['month'];
                                 }
                             ?>:</h4>
                             <a href="mechanics/month.php"><button class="m_Btn">Изменить месяц</button></a>
 
-                            <form action="">
+                            <form action="mechanics/salary.php" method="POST">
                                 <input type="number" name="mainSalary" class="centralInp" placeholder="Моя зарплата">
-                                <input type="number" name="salary" class="centralInp" placeholder="Зарплата сотрудников">
+                                <input type="number" name="workersSalary" class="centralInp" placeholder="Зарплата сотрудников">
                             
                                 <input type="submit" name="sendData" value="OK" class="sendData">
                             </form>
