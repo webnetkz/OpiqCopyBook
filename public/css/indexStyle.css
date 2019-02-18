@@ -34,7 +34,7 @@ div.signBlock {
 }
 
 div.block0 {
-    height: 30%;
+    height: 40%;
     margin: 5% auto;
 }
 
@@ -80,7 +80,7 @@ button.btnReg2 {
 
 div.signBtn {
     position: fixed;
-    top: 60%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -40%);
     border: 1 solid rgb(222,222,222);

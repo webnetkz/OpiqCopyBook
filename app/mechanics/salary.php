@@ -8,16 +8,44 @@
 
     switch($_SESSION['month']) {
         case 'январь':
-            $_SESSION['month'] = 'january';
+            $month = 'january';
             break;
         case 'февраль':
-            $_SESSION['month'] = 'february';
+            $month = 'february';
             break;
         case 'март':
-            $_SESSION['month'] = 'march';
+            $month = 'march';
             break;
         case 'апрель':
-            $_SESSION['month'] = 'april';
+            $month = 'april';
+            break;
+        case 'март':
+            $month = 'march';
+            break;
+        case 'май':
+            $month = 'may';
+            break;
+        case 'июнь':
+            $month = 'june';
+            break;
+        case 'июль':
+            $month = 'july';
+            break;
+        case 'август':
+            $month = 'august';
+            break;
+        case 'сентабрь':
+            $_SESSION['month'] = 'september';
+            break;
+        case 'октябрь':
+            $_SESSION['month'] = 'october';
+            break;
+        case 'ноябрь':
+            $_SESSION['month'] = 'november';
+            break;
+        case 'декабрь':
+            $_SESSION['month'] = 'december';
+            break;
     }
 
 
@@ -25,10 +53,10 @@
 
         $mainSalary = (int)$_POST['mainSalary'];
         $workersSalary = $_POST['workersSalary'];
-        $month = $_SESSION['month'];
+        $iin = $_SESSION['iin'];
 
-        $mainSalaryInsert = $pdo->pdo->query("INSERT INTO mainSalary (iin) VALUES(123);");
+        $resultSalary = $pdo->pdo->query("INSERT INTO $month (mainSalary, workersSalary, iin) VALUES('$mainSalary', '$workersSalary', '$iin');");
         
-        var_dump($mainSalaryInsert);
+            header('Location: changeSalary.php');
 
     }

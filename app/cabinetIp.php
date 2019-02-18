@@ -143,5 +143,7 @@ if($_SESSION['iin'] == null) {
                 
             </form>
         </div>
+    
+        <script src="../public/js/cabinet.js"></script>
     </body>
 </html>
