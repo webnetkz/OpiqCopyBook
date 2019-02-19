@@ -6,6 +6,16 @@ if($_SESSION['iin'] == null) {
     header("Location: ../index.php");
 }
 
+require_once 'classes/DataBase.php';
+$pdo = new DataBase();
+
+$iin = $_SESSION['iin'];
+
+$resultUser = $pdo->pdo->query("SELECT * FROM users WHERE iin = '$iin'");
+$resultUser = $resultUser->fetchAll(PDO::FETCH_ASSOC);
+
+$_SESSION['company'] = $resultUser[0]['company'];
+
 ?>
 
 <html>

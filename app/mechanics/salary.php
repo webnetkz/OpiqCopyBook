@@ -35,16 +35,16 @@
             $month = 'august';
             break;
         case 'сентабрь':
-            $_SESSION['month'] = 'september';
+            $month = 'september';
             break;
         case 'октябрь':
-            $_SESSION['month'] = 'october';
+            $month = 'october';
             break;
         case 'ноябрь':
-            $_SESSION['month'] = 'november';
+            $month = 'november';
             break;
         case 'декабрь':
-            $_SESSION['month'] = 'december';
+            $month = 'december';
             break;
     }
 
@@ -55,7 +55,7 @@
         $workersSalary = $_POST['workersSalary'];
         $iin = $_SESSION['iin'];
 
-        $resultSalary = $pdo->pdo->query("INSERT INTO $month (mainSalary, workersSalary, iin) VALUES('$mainSalary', '$workersSalary', '$iin');");
+        $resultSalary = $pdo->pdo->query("INSERT INTO $month (mainSalary, workersSalary) VALUES('$mainSalary', '$workersSalary') WHERE iin = '$iin';");
         
             header('Location: changeSalary.php');
 
