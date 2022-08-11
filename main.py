@@ -9,6 +9,7 @@ import time
 from bs4 import BeautifulSoup
 from lxml import etree
 import requests
+import keyboard
 
 
 def start_app():
@@ -23,7 +24,7 @@ def start_app():
   options = webdriver.ChromeOptions() # Создание объекта настроек
   options.add_argument('headless') # Активация скрытого режима
 
-  driver = webdriver.Chrome(executable_path=EXE_PATH)#, chrome_options=options)
+  driver = webdriver.Chrome(executable_path=EXE_PATH, chrome_options=options)
   driver.get(url_from)
 
   #Авторизация
@@ -70,15 +71,16 @@ def start_app():
 
 
   time.sleep(3)
-  xxx = driver.find_element_by_css_selector(".CodeMirror-code")
-  driver.find_element_by_name('body').send_keys(Keys.CONTROL, 'a')
+  driver.find_element(By.CSS_SELECTOR, ".CodeMirror-line:nth-child(23)").click()
+  keyboard.send("ctrl+a")
 
   while True:
     True
 
 
+class Go:
+  def sss(self):
+    print(self)
+
 if __name__ == '__main__':
   start_app()
-  #while True:
-    #time.sleep(0.1)
-    #print("-"*random.randint(1, 50))
