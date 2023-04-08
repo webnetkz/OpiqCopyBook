@@ -20,7 +20,6 @@ public class TypingGame : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
-        text = text.Replace(" ", ""); // удаляем пробелы из строки
         GenerateLetters();
     }
 
@@ -30,12 +29,15 @@ public class TypingGame : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
+            if (text[currentLetterIndex] == ' ' && Input.GetKeyDown(KeyCode.Space))
+            {
+                return;
+            }
             if (Input.GetKeyDown(text[currentLetterIndex].ToString()))
             {
-                //Destroy(letters[currentLetterIndex]);
-                Dissolve dis = letters[currentLetterIndex].GetComponent<Dissolve>();
-                dis.enabled = true;
-                Debug.Log(dis);
+                letters[currentLetterIndex].GetComponent<Rigidbody>().useGravity = true;
+                letters[currentLetterIndex].GetComponent<Rigidbody>().AddForce(-transform.forward * 50f, ForceMode.Impulse);
+                //Destroy(letters[currentLetterIndex], 2f); // Уничтожить через 2 секунды
                 currentLetterIndex++;
 
                 if (currentLetterIndex == text.Length)
@@ -56,11 +58,18 @@ public class TypingGame : MonoBehaviour
         for (int i = 0; i < text.Length; i++)
         {
             char c = text[i];
+            // Добавляет отсуп пробела
+            if (c == ' ')
+            {
+                x += 1.0f;
+                continue;
+            }
             if (!Char.IsLower(c))
             {
                 Debug.LogError("Invalid character in text: " + c);
                 continue;
             }
+
 
             int index = c - 'a';
             if (index < 0 || index >= letterPrefabs.Length)
@@ -74,7 +83,10 @@ public class TypingGame : MonoBehaviour
             }
 
             GameObject letterPrefab = letterPrefabs[index];
-            GameObject letter = Instantiate(letterPrefab, new Vector3(x + i, 0f, 0f), Quaternion.identity);
+            GameObject letter = null;
+            letter = Instantiate(letterPrefab, new Vector3(x + (i*2), 7f, 0f), Quaternion.identity);
+
+            
             letter.transform.Rotate(0f, 180f, 0f); // Поворачивает буквы, лицом к камере
             letters.Add(letter);
         }
