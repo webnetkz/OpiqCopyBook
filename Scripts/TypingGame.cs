@@ -27,17 +27,15 @@ public class TypingGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        MoveCamera();
         if (Input.anyKeyDown)
         {
-            if (text[currentLetterIndex] == ' ' && Input.GetKeyDown(KeyCode.Space))
-            {
-                return;
-            }
             if (Input.GetKeyDown(text[currentLetterIndex].ToString()))
             {
                 letters[currentLetterIndex].GetComponent<Rigidbody>().useGravity = true;
-                letters[currentLetterIndex].GetComponent<Rigidbody>().AddForce(-transform.forward * 50f, ForceMode.Impulse);
-                //Destroy(letters[currentLetterIndex], 2f); // Уничтожить через 2 секунды
+                letters[currentLetterIndex].GetComponent<Rigidbody>().AddForce(-transform.forward * 60f, ForceMode.Impulse);
+                
+                Destroy(letters[currentLetterIndex], 5f); // Уничтожить через 2 секунды
                 currentLetterIndex++;
 
                 if (currentLetterIndex == text.Length)
@@ -45,11 +43,18 @@ public class TypingGame : MonoBehaviour
                     Debug.Log("You win!");
                     enabled = false;
                 }
+            } else {
+                Invoke("ShowBloor", 1f);
             }
         }
-
-        // MoveCamera();
+        MoveCamera();
     }
+
+    private void ShowBloor()
+    {
+
+    }
+
 
     void GenerateLetters()
     {
@@ -90,32 +95,33 @@ public class TypingGame : MonoBehaviour
             letter.transform.Rotate(0f, 180f, 0f); // Поворачивает буквы, лицом к камере
             letters.Add(letter);
         }
+        text = text.Replace(" ", ""); // удаляем пробелы из строки
     }
 
 
 
-    // void MoveCamera()
-    // {
-    //     Vector3 targetPosition = Vector3.zero;
-    //     int count = 0;
+    void MoveCamera()
+    {
+        Vector3 targetPosition = Vector3.zero;
+        int count = 0;
 
-    //     for (int i = 0; i < currentLetterIndex; i++)
-    //     {
-    //         if (letters[i] != null)
-    //         {
-    //             targetPosition += letters[i].transform.position;
-    //             count++;
-    //         }
-    //     }
+        for (int i = 0; i < currentLetterIndex; i++)
+        {
+            if (letters[i] != null)
+            {
+                targetPosition += letters[i].transform.position;
+                count++;
+            }
+        }
 
-    //     if (count > 0)
-    //     {
-    //         targetPosition /= count;
+        if (count > 0)
+        {
+            targetPosition /= count;
 
-    //         Vector3 cameraPosition = mainCamera.transform.position;
-    //         cameraPosition = Vector3.SmoothDamp(cameraPosition, new Vector3(targetPosition.x, targetPosition.y, -10f), ref velocity, smoothTime);
-    //         mainCamera.transform.position = cameraPosition;
-    //     }
-    // }
+            Vector3 cameraPosition = mainCamera.transform.position;
+            cameraPosition = Vector3.SmoothDamp(cameraPosition, new Vector3(targetPosition.x, 10.4f, -22.7f), ref velocity, smoothTime);
+            mainCamera.transform.position = cameraPosition;
+        }
+    }
 
 }
