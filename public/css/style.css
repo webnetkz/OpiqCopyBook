@@ -22,7 +22,7 @@ body {
 }
 .char-completed {
     color: var(--completedChar);
-    animation: showCompletedChar 0.6s linear;
+    animation: showCompletedChar 0.1s linear;
 }
 
 @keyframes showCompletedChar {

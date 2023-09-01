@@ -12,12 +12,14 @@ contentCompleted.forEach((char) => {
 
 document.addEventListener('keydown', function(event) {
     const char = document.querySelector('span.char');
-    const charText = char.innerText.toLowerCase();
+    const charText = char.innerText;
 
     if(charText == event.key) {
         char.classList.remove('char');
         char.classList.add('char-completed');
+        playRandomSound();
     } else {
+        playSound(sound);
         document.body.classList.add('lostAttempt');
         setTimeout(() => {
             document.body.classList.remove('lostAttempt');
