@@ -1,0 +1,45 @@
+:root {
+    --white: #d1d0c5;
+    --completedChar: #63635d;
+    --dark: #323437;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background: var(--dark);
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: sans-serif;
+}
+#text {
+    width: 500px;
+    height: 300px;
+}
+.char-completed {
+    color: var(--completedChar);
+    animation: showCompletedChar 0.6s linear;
+}
+
+@keyframes showCompletedChar {
+    0% {
+        color: var(--white);
+    }
+    100% {
+        color: var(--completedChar);
+    }
+}
+
+.lostAttempt {
+    animation: lostAttempt 0.2s linear;
+}
+
+@keyframes lostAttempt {
+    50% {
+        background-color: rgba(255, 0, 0, 0.3);
+    }
+}

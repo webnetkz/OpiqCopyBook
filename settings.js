@@ -1,8 +1,8 @@
-let app = 'Name App';
+let app = 'xType';
     company = 'WebNet.kz';
-    app_code = 'com.webnet.NAME_APP';
+    app_code = 'com.webnet.xtype';
     email = 'dbqqbq@gmail.com';
-    date = '2022-08-21';
+    date = '2023-09-01';
 
 document.title = app;
 let app_names = document.querySelectorAll('.app_name');
